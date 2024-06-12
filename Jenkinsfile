@@ -13,10 +13,10 @@ parameters {
         stage('build') {
             steps {
                 echo "NAME : ${ NAME }"
-                echo "NAME : ${ TEXT }"
-                echo "NAME : ${ TOGGLE }"
-                echo "NAME : ${ CHOICE }"
-                echo "NAME : ${ PASSWORD }"
+                echo "TEXT : ${ TEXT }"
+                echo "TOGGLE : ${ TOGGLE }"
+                echo "CHOICE : ${ CHOICE }"
+                echo "PASSWORD : ${ PASSWORD }"
             }
         }
     }
