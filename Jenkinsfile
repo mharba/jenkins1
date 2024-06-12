@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Production ?')
+        choice(name: 'DEPLOY_TO', values: ['production', 'PreProd'], defaultValue: "Preprod", description: 'Production ?')
     }
 
     stages {
