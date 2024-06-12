@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    environment {
-        DEPLOY_TO = 'production'
+    parameters{
+        booleanParam(name: 'DEPLOY_TO', default: false, description: 'Production ?')
     }
 
     stages {
@@ -14,7 +14,7 @@ pipeline {
             when {
                 allOf {
                     branch 'main'
-                    environment name: 'DEPLOY_TO', value: 'production'
+                    equals expected: true, actual: params.DEPLOY_TO
                 }
             }
             steps {
