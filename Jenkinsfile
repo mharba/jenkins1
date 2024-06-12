@@ -9,7 +9,10 @@ pipeline {
         }
         stage('deployment production') {
             when {
-                branch 'main'
+                allOff {
+                    branch 'main'
+                    environment name: 'DEPLOY_TO', value 'production'
+                }
             }
             steps {
                 echo 'deploy !'
