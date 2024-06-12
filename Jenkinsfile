@@ -16,5 +16,9 @@ pipeline {
             }
         }
     }
+<<<<<<< HEAD
     
 }
+=======
+}
+>>>>>>> cdc73a7 (change)
