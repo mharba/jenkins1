@@ -1,15 +1,14 @@
 pipeline {
     agent any
-    tools {
-        gradle 'gradle8.8'
-        nodejs 'node22'
-    }
-
     stages {
         stage('build') {
             steps {
-                sh 'gradle -v'
-                sh 'node -v'
+                echo 'hello'
+            }
+        }
+        post {
+            success {
+                emailext (to: harbaoui.mohamed@gmail.com, body: 'test body', subject: 'test subject')
             }
         }
     }
