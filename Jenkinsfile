@@ -14,7 +14,7 @@ pipeline {
             when {
                 allOf {
                     branch 'main'
-                    equals expected: true, actual: params.DEPLOY_TO
+                    equals expected: 'production', actual: params.DEPLOY_TO
                 }
             }
             steps {
