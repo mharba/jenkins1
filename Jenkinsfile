@@ -9,7 +9,7 @@ pipeline {
     }
     post {
         success {
-            emailext (to: harbaoui.mohamed@gmail.com, body: 'test body', subject: 'test subject')
+            emailext (to: 'harbaoui.mohamed@gmail.com', body: 'test body', subject: 'test subject')
         }
     }
 
