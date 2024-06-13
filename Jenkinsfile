@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         gradle 'gradle8.8'
-        nodeJs 'node22'
+        nodejs 'node22'
     }
 
     stages {
