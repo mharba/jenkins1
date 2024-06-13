@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        choice(name: 'DEPLOY_TO', choices: ['PreProd', 'production'], description: 'Production ?')
+        booleanParam(name: 'DEPLOY_TO', defaultValue: false, description: 'Production ?')
     }
 
     stages {
@@ -14,7 +14,7 @@ pipeline {
             when {
                 allOf {
                     branch 'main'
-                    equals expected: 'production', actual: params.DEPLOY_TO
+                    expression { params.DEPLOY_TO }
                 }
             }
             steps {
