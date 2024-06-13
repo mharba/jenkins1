@@ -6,10 +6,11 @@ pipeline {
                 echo 'hello'
             }
         }
-        post {
-            success {
-                emailext (to: harbaoui.mohamed@gmail.com, body: 'test body', subject: 'test subject')
-            }
+    }
+    post {
+        success {
+            emailext (to: harbaoui.mohamed@gmail.com, body: 'test body', subject: 'test subject')
         }
     }
+
 }
