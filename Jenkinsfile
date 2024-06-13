@@ -2,17 +2,28 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
-            failFast true
-            parallel {
-                stage('build frontend') {
-                    steps {
-                        echo 'build frontend !'
+        stage('build and test') {
+            matrix {
+                axes {
+                    axis {
+                        name 'PLATEFORM'
+                        values ' linux', 'macos', 'windows'
+                    }
+                    axis {
+                        name 'BROWSER'
+                        values ' firefox', 'chrome', 'safari'
                     }
                 }
-                stage('build backend') {
-                    steps {
-                        echo 'build backend !'
+                stages {
+                    stage('build') {
+                        steps {
+                            echo "Construire pour ${ PLATEFORM } - ${ BROWSER }"
+                        }
+                    }
+                    stage('test') {
+                        steps {
+                            echo "test pour ${ PLATEFORM } - ${ BROWSER }"
+                        }
                     }
                 }
             }
